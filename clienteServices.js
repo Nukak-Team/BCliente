@@ -1,5 +1,5 @@
 //const getMongo = require("./mongodb.js")
-let Clientes = require("./productos.json")
+let Clientes = require("./cliente.json")
 
 // async function getConexiones() {
 //     const nameDb = ""
@@ -11,6 +11,29 @@ let Clientes = require("./productos.json")
 const clientesGet = () =>{
     return Clientes
 }
+
+const clientesGetId = (id) =>{
+    //const { collection, client } = await getConexiones()
+    // var clienteEncontrado = null
+    // await collection.findOne({"_id":id}).then(
+        
+    //     (client)=>{
+    //         clienteEncontrado = client
+    //     }
+    
+    // )
+    //await getMongo.closeClientExport(client)
+    //return clienteEncontrado
+    var cliente = Clientes.find(
+        (client)=>{
+            return client._id === id
+        }
+    )
+    console.log(cliente);
+    return cliente
+}
+
+//********************* SET ************************
 
 const clientesSet = (Clientes) =>{
     Clientes.push(cliente)
@@ -28,23 +51,7 @@ const clientesDelete = (id) =>{
     return cliente
 }
 
-const clientesGetId = async (id) =>{
-    //const { collection, client } = await getConexiones()
-    // var clienteEncontrado = null
-    // await collection.findOne({"_id":id}).then(
-        
-    //     (client)=>{
-    //         clienteEncontrado = client
-    //     }
-    
-    // )
-    //await getMongo.closeClientExport(client)
-    //return clienteEncontrado
-    let cliente = Clientes.find(
-        (client)=>(client.id === id)
-    )
-    return cliente
-}
+
 
 module.exports.clientesGetExport = clientesGet;
 module.exports.clientesSetExport = clientesSet;

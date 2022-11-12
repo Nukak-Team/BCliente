@@ -1,24 +1,24 @@
 [
     {
-        "_id":"01",
-        "nombre":"persona1",
+        "_id":"1",
+        "nombre":"Administrador",
         "email":"nukakadmin@gmail.com",
         "rol":"Admin"
     },
     {
-        "_id":"02",
+        "_id":"2",
         "nombre":"Juanita",
         "email":"juanita@gmail.com",
         "rol":"User"
     },
     {
-        "_id":"03",
+        "_id":"3",
         "nombre":"Peranito",
         "email":"peranito@gmail.com",
         "rol":"User"
     },
     {
-        "_id":"04",
+        "_id":"4",
         "nombre":"Juanito",
         "email":"juanito@gmail.com",
         "rol":"User"
