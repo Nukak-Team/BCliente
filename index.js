@@ -25,7 +25,7 @@ app.get(pathName+"/id",
         console.log("Recibimos peticion")
         let id = req.query.id
         res.send(await clienteService.clientesGetIdExport(id))
-}
+    }
 )
 
 

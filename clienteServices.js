@@ -1,50 +1,41 @@
-//const getMongo = require("./mongodb.js")
-let Clientes = require("./cliente.json")
+const getMongo = require("./mongodb.js")
 
-// async function getConexiones() {
-//     const nameDb = ""
-//     const client = await getMongo.getClientnExport(nameDb)
-//     const collection = await getMongo.getCollectionExport(client, nameDb)
-//     return { collection, client }
-// }
+async function getConexiones() {
+    const nameDB = "FerreteriaNukak"
+    const Clientes = await getMongo.getClientnExport(nameDb)
+    const collection = await getMongo.getCollectionExport(client, nameDb)
+    return { collection, client }
+}
 
 const clientesGet = () =>{
     return Clientes
 }
 
-const clientesGetId = (id) =>{
-    //const { collection, client } = await getConexiones()
-    // var clienteEncontrado = null
-    // await collection.findOne({"_id":id}).then(
-        
-    //     (client)=>{
-    //         clienteEncontrado = client
-    //     }
-    
-    // )
-    //await getMongo.closeClientExport(client)
-    //return clienteEncontrado
-    var cliente = Clientes.find(
-        (client)=>{
-            return client._id === id
+const clientesGetId = async (id) =>{
+    const { collection, client } = await getConexiones()
+    var clienteEncontrado = null
+    await collection.findOne({"_id":id}).then(
+        (Clientes)=>{
+            clienteEncontrado = Clientes
         }
     )
-    console.log(cliente);
-    return cliente
+    await getMongo.closeClientExport(client)
+    return clienteEncontrado
 }
 
 //********************* SET ************************
 
-const clientesSet = (Clientes) =>{
+const clientesSet = (cliente) =>{
     Clientes.push(cliente)
     return Clientes
 
 }
 
+//********************* DELETE ************************
+
 const clientesDelete = (id) =>{
-    console.log(Clientes)
-    cliente = Clientes.filter((vuel)=>{
-        return vuel.id != id
+    cliente = Clientes.filter((carrito)=>{
+        return carrito.id != id
     }
     )
     console.log(cliente)
