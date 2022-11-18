@@ -2,8 +2,8 @@ const getMongo = require("./mongodb.js")
 
 async function getConexiones() {
     const nameDB = "FerreteriaNukak"
-    const Clientes = await getMongo.getClientnExport(nameDb)
-    const collection = await getMongo.getCollectionExport(client, nameDb)
+    const client = await getMongo.getClientExport(nameDB)
+    const collection = await getMongo.getCollectionExport(client, nameDB)
     return { collection, client }
 }
 
