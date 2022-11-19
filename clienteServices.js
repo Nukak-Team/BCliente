@@ -16,7 +16,7 @@ const clientesGetId = async (id) =>{
     var clienteEncontrado = null
     await collection.findOne({"_id":id}).then(
         (Clientes)=>{
-            clienteEncontrado = Clientes
+            return clienteEncontrado = Clientes
         }
     )
     await getMongo.closeClientExport(client)
